@@ -1,0 +1,65 @@
+@Metadata.layer: #CORE
+//@UI.headerInfo:  {
+//     typeName:'Concesionario',
+//     typeNamePlural:'Concesionarios',
+//     title: { value: 'Nombre', label:'Nombre del Concesionario'},
+//     description:{ value:'Provincia',label:'Provincia' }
+//    }
+@UI.headerInfo: {
+  title: { value: 'Nombre' },
+  description: { value: 'Provincia' }
+}
+
+
+annotate entity ZCDS_DD_ZCONCE_36 with
+{
+  @UI.facet: [
+    {
+      id:              'infoGeneral',
+      purpose:         #STANDARD,
+      type:            #IDENTIFICATION_REFERENCE,
+      label:           'Información general',
+      position:        10
+    },
+    {
+      id:              'Provincia',
+      purpose:         #STANDARD,
+      type:            #FIELDGROUP_REFERENCE,
+      targetElement:   'Provincia',
+      label:           'Provincia',
+      position:        20
+    }
+  ]
+
+  @UI.selectionField: [{ position: 10 }]
+  @UI.lineItem:   [ { position: 10, label: 'ID Concesionario'} ] //Posicion del campo de busqueda
+  @UI.identification:     [{ position: 10 }]
+  @UI.hidden : true //Ocultar el campo
+  IdConce;
+
+  @UI.selectionField: [{ position: 20 }]
+  @UI.lineItem:   [ { position: 20, label: 'Nombre Concesionario'} ]
+  @UI.identification:     [{ position: 20 }]
+  Nombre;
+
+  @UI.selectionField: [{ position: 30 }]
+  @UI.lineItem:   [ { position: 30, label: 'Localidad'} ]
+  //@UI.identification:     [{ position: 30 }]
+  @UI.fieldGroup: [{qualifier:'Provincia', position: 10 }]
+  Localidad;
+
+  @UI.lineItem:   [ { position: 40, label: 'Provincia'} ]
+  @UI.selectionField: [{ position: 40 }]
+  @UI.identification:     [{ position: 40 }]
+  Provincia;
+
+  @UI.lineItem:   [ { position: 50, label: 'Codigo Postal'} ]
+  @UI.fieldGroup: [{qualifier:'Provincia', position: 20  }]
+  CodPostal;
+
+  @UI.lineItem:   [ { position: 60, label: 'Telefono'} ]
+  Telefono;
+
+  @UI.lineItem:   [ { position: 60, label: 'Email'} ]
+  Email;
+}

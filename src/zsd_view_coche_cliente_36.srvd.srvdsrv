@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition For ZCDS_DD_VIEW_CLIENTE_COCHE_36'
+define service ZSD_VIEW_COCHE_CLIENTE_36 {
+  expose ZCDS_DD_VIEW_COCHE_CLIENTE_36;
+}
